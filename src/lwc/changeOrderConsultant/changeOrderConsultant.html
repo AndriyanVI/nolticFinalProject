@@ -1,0 +1,9 @@
+<template>
+    <lightning-card icon-name="standard:user" title="Consultant Responsible For Order">
+        <template for:each={userData} for:item="user">
+            <div class="slds-m-around_medium slds-box" key={user.Id}>
+                <c-user user={user}></c-user>
+            </div>
+        </template>
+    </lightning-card>
+</template>

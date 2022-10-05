@@ -1,0 +1,13 @@
+<template>
+    <lightning-card title="List Of Employees"  icon-name="standard:user">
+        <template if:true={userData}>
+            <ul>
+                <template for:each={userData} for:item="user">
+                    <li  key={user.id} class='slds-p-bottom_medium slds-m-around_medium slds-box' >
+                        <c-user  user={user}></c-user>
+                    </li>
+                </template>
+            </ul>
+        </template>
+    </lightning-card>
+</template>

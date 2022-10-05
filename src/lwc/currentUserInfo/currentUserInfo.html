@@ -1,0 +1,60 @@
+<template>
+    <lightning-card title="Consultant info" icon-name="standard:user">
+        <div class="slds-m-around_medium">
+
+            <table if:false= {editInfo} class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered" style="border-collapse:collapse; font-weight:bold;">
+                <tbody>
+                <tr>
+                    <td  style="background:#eee;">User Id</td>
+                    <td  style="color:#062880;">{userId}</td>
+                </tr>
+                <tr>
+                    <td style="background:#eee;">User Name</td>
+                    <td style="color:#062880;">{currentUserName}</td>
+                </tr>
+                <tr>
+                    <td style="background:#eee;">User Phone</td>
+                    <td style="color:#062880;"> {currentUserPhone}</td>
+                </tr>
+                <tr>
+                    <td style="background:#eee;">User Email</td>
+                    <td style="color:#062880;"> {currentUserEmailId}</td>
+                </tr>
+                <tr>
+                    <td style="background:#eee;">IsActive</td>
+                    <td style="color:#062880;"> {currentIsActive}</td>
+                </tr>
+                <tr>
+                    <td style="background:#eee;">Alias Name</td>
+                    <td style="color:#062880;"> {currentUserAlias}</td>
+                </tr>
+                <tr>
+                    <td style="background:#eee;">City Name</td>
+                    <td style="color:#062880;"> {currentUserCity}</td>
+                </tr>
+                </tbody>
+            </table>
+            <lightning-button if:false={editInfo} onclick={handleChange} class="slds-m-top_large" name="Edit" label="Edit" type="button"></lightning-button>
+            <div if:true={editInfo}>
+                <div class="slds-p-bottom_small slds-p-left_small">
+                    <lightning-record-edit-form
+                            object-api-name= "User"
+                            record-id={userId}
+                    >
+                        <lightning-input-field field-name={nameField}></lightning-input-field>
+                        <lightning-input-field field-name={phoneField}></lightning-input-field>
+                        <lightning-input-field field-name={emailField}></lightning-input-field>
+                        <lightning-input-field field-name={isActiveField}></lightning-input-field>
+                        <lightning-input-field field-name={aliasField}></lightning-input-field>
+                        <lightning-input-field field-name={cityField}></lightning-input-field>
+                        <div class="slds-var-m-top_medium">
+                            <lightning-button onclick={handleChange} variant="brand" type="submit" label="Save">
+                            </lightning-button>
+                            <lightning-button if:true= {editInfo} onclick={handleChange} class="slds-m-left_small" name="Cancel" label="Cancel" type="button"></lightning-button>
+                        </div>
+                    </lightning-record-edit-form>
+                </div>
+            </div>
+        </div>
+    </lightning-card>
+</template>
