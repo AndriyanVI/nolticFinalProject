@@ -1,0 +1,14 @@
+<template>
+        <template if:true={user}>
+            <h1 style="font-size: 20px"><b>{user.Name}</b></h1>
+            <p><b>Username:</b> {user.Username}</p>
+            <p><b>Email:</b> {user.Email}</p>
+            <p><b>Active:</b> {user.IsActive}</p>
+            <p><b>Phone:</b> {user.Phone}</p>
+            <p><b>Alias:</b> {user.Alias}</p>
+            <p><b>City:</b> {user.City}</p>
+        </template>
+        <template if:false={user}>
+            <p>User is not available</p>
+        </template>
+</template>
